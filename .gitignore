@@ -2,12 +2,14 @@
 __pycache__/
 *.pyc
 
-# Google OAuth files
+# Google OAuth files (CRITICAL)
+credentials/
 credentials.json
 token.json
+token.pickle
 
 # App state
-state/
+state.json
 
 # Editor files
 .vscode/
