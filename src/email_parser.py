@@ -8,12 +8,6 @@ def _decode_base64(data):
 
 
 def extract_body(payload):
-    """
-    Extract email body safely:
-    1. Prefer text/plain
-    2. Fallback to text/html
-    3. Avoid duplicates
-    """
     if "parts" not in payload:
         if payload.get("mimeType") == "text/plain":
             return _decode_base64(payload["body"].get("data", ""))

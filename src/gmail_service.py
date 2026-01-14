@@ -11,7 +11,6 @@ CREDENTIALS_FILE = "credentials/credentials.json"
 
 def get_gmail_service():
     creds = None
-
     if os.path.exists(TOKEN_FILE):
         with open(TOKEN_FILE, "rb") as token:
             creds = pickle.load(token)
@@ -23,7 +22,11 @@ def get_gmail_service():
             flow = InstalledAppFlow.from_client_secrets_file(
                 CREDENTIALS_FILE, SCOPES
             )
-            creds = flow.run_local_server(port=0)
+
+            if os.environ.get("RUNNING_IN_DOCKER") == "1":
+                creds = flow.run_local_server(open_browser=False)
+            else:
+                creds = flow.run_local_server(port=0)
 
         with open(TOKEN_FILE, "wb") as token:
             pickle.dump(creds, token)
