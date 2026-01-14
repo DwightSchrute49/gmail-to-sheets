@@ -1,20 +1,17 @@
-# Python cache
+
 __pycache__/
 *.pyc
 
-# Google OAuth files (CRITICAL)
+
 credentials/
 credentials.json
 token.json
 token.pickle
 
-# App state
 state.json
 
-# Editor files
 .vscode/
 .idea/
 
-# OS files
 .DS_Store
 Thumbs.db

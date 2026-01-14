@@ -27,7 +27,7 @@ def extract_body(payload):
 
         if mime == "text/plain" and "data" in part["body"]:
             plain_text = _decode_base64(part["body"]["data"])
-            break  # ✅ STOP immediately
+            break 
 
         if mime == "text/html" and "data" in part["body"]:
             html_text = _decode_base64(part["body"]["data"])

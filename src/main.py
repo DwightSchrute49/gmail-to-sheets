@@ -37,7 +37,7 @@ def main():
         msg_id = msg_meta["id"]
 
         if msg_id in processed_ids:
-            continue  # 🚫 prevent duplicates
+            continue  
 
         message = gmail.users().messages().get(
             userId="me",
@@ -57,7 +57,7 @@ def main():
         processed_ids.add(msg_id)
 
     save_state(processed_ids)
-    print("✅ Unread emails synced successfully.")
+    print("Unread emails synced successfully.!!Yayyy!")
 
 if __name__ == "__main__":
     main()
